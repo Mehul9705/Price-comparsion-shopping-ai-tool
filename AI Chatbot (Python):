@@ -1,0 +1,17 @@
+import openai
+
+# Initialize OpenAI API
+openai.api_key = "your-api-key"
+
+def chat_with_ai(user_input):
+    response = openai.Completion.create(
+        engine="text-davinci-003",
+        prompt=user_input,
+        max_tokens=150
+    )
+    return response.choices[0].text.strip()
+
+# Example usage
+user_message = "I'm feeling stressed. Can you help?"
+ai_response = chat_with_ai(user_message)
+print("AI:", ai_response)
